@@ -56,6 +56,7 @@ Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://raw.git
 
 Write-Host "Installing Office365"
 Start-Process "$ODT\ODTTool.exe" -ArgumentList "/Extract:$ODT /quiet"
+Start-Sleep -Seconds 10
 Start-Process $ODT\setup.exe -ArgumentList "/Configure $ODT\ConfigurationSDL.xml"
 Start-Sleep -Seconds 5
 
