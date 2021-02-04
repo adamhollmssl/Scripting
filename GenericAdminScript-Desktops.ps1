@@ -40,6 +40,7 @@ New-Item -Path "C:\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Qui
 # Invoke-WebRequest -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/Microsip.ps1 -OutFile "$TempMicroSipLocation\Microsip.ps1"
 
 # Downloads Required Files & Names them accordingly
+
 Write-Host "Post Deployment Script - Generic Admin Script, Run at First Login After Image"
 Write-Host "Content Creator - Adam Hollingsworth"
 Write-Host " "
@@ -53,6 +54,13 @@ Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githu
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://dl.google.com/tag/s/appguid%253D%257B8A69D345-D564-463C-AFF1-A69D9E530F96%257D%2526iid%253D%257BBEF3DB5A-5C0B-4098-B932-87EC614379B7%257D%2526lang%253Den%2526browser%253D4%2526usagestats%253D1%2526appname%253DGoogle%252520Chrome%2526needsadmin%253Dtrue%2526ap%253Dx64-stable-statsdef_1%2526brand%253DGCEB/dl/chrome/install/GoogleChromeEnterpriseBundle64.zip?_ga%3D2.8891187.708273100.1528207374-1188218225.1527264447" -OutFile "$TempScriptsLocation\GoogleChrome.zip"
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_13530-20376.exe" -OutFile "$ODT\ODTTool.exe"
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://raw.githubusercontent.com/adamhollmssl/Scripting/master/ConfigurationSDL.xml" -OutFile "$ODT\ConfigurationSDL.xml"
+Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://api-cloudstation-us-east-2.prod.hydra.sophos.com/api/download/11432f59a664f6a712048f077b36305b/SophosSetup.exe" -OutFile "$TempLocation\SophosSetup.exe"
+
+# Install Sophos
+
+Write-Host "Installing Sophos"
+Start-Process "$TempLocation\SophosSetup.exe" -Wait -ArgumentList "--products=antivirus,intercept --quiet"
+Start-Sleep -Seconds 10
 
 # Install Office365
 
