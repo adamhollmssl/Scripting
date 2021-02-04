@@ -40,7 +40,9 @@ New-Item -Path "C:\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Qui
 # Invoke-WebRequest -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/Microsip.ps1 -OutFile "$TempMicroSipLocation\Microsip.ps1"
 
 # Downloads Required Files & Names them accordingly
-
+Write-Host "Post Deployment Script - Generic Admin Script, Run at First Login After Image"
+Write-Host "Content Creator - Adam Hollingsworth"
+Write-Host " "
 Write-Host "Download in Progress - May take some time"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.19.31.exe  -OutFile $TempMicroSipLocation\Microsip.exe
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.19.31.exe -OutFile "$TempMicroSipLocation\Microsip.exe"
