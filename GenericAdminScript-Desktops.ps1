@@ -46,7 +46,6 @@ Write-Host "Content Creator - Adam Hollingsworth"
 Write-Host " "
 Write-Host "Download in Progress - May take some time"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.19.31.exe  -OutFile $TempMicroSipLocation\Microsip.exe
-Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.19.31.exe -OutFile "$TempMicroSipLocation\Microsip.exe"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/Taskbar.zip -OutFile "$StartMenuLocation\Links.zip"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/TaskBarReg.reg -OutFile "$StartMenuLocation\TaskBarReg.reg"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/DefaultApps.reg -OutFile "$TempLocation\DefaultApps.reg"
