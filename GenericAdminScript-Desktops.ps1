@@ -45,7 +45,7 @@ Write-Host "Post Deployment Script - Generic Admin Script, Run at First Login Af
 Write-Host "Content Creator - Adam Hollingsworth"
 Write-Host " "
 Write-Host "Download in Progress - May take some time"
-Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.19.31.exe  -OutFile $TempMicroSipLocation\Microsip.exe
+Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://www.microsip.org/download/MicroSIP-3.20.7.exe  -OutFile $TempMicroSipLocation\Microsip.exe
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/Taskbar.zip -OutFile "$StartMenuLocation\Links.zip"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/TaskBarReg.reg -OutFile "$StartMenuLocation\TaskBarReg.reg"
 Invoke-RestMethod -ContentType "application/octet-stream" -Uri https://raw.githubusercontent.com/adamhollmssl/Scripting/master/DefaultApps.reg -OutFile "$TempLocation\DefaultApps.reg"
@@ -80,7 +80,7 @@ Start-Sleep -Seconds 5
 # Install NetExtender
 
 Write-Host "Installing NetExtender"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/adamhollmssl/Scripting/master/NetExtender-9.0.0.274 (1).MSI" -OutFile "$TempScriptsLocation\NetExtender.msi"
+Invoke-WebRequest -Uri "https://github.com/adamhollmssl/Scripting/raw/master/NetExtender-x64-10.2.319.MSI" -OutFile "$TempScriptsLocation\NetExtender.msi"
 Start-Process MSIEXEC.exe -wait -ArgumentList "/I $TempScriptsLocation\NetExtender.msi /quiet /norestart"
 Start-Sleep -Seconds 5
 
