@@ -54,6 +54,7 @@ Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://dl.goog
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_13530-20376.exe" -OutFile "$ODT\ODTTool.exe"
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://raw.githubusercontent.com/adamhollmssl/Scripting/master/ConfigurationSDL.xml" -OutFile "$ODT\ConfigurationSDL.xml"
 Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://api-cloudstation-us-east-2.prod.hydra.sophos.com/api/download/11432f59a664f6a712048f077b36305b/SophosSetup.exe" -OutFile "$TempLocation\SophosSetup.exe"
+Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://msspublicdocs.blob.core.windows.net/public/ADSelfServicePlusClientSoftware.msi" -OutFile "$TempLocation\ADSelfServicePlusClientSoftware.msi"
 #Invoke-RestMethod -ContentType "application/octet-stream"  -Uri "https://get.adobe.com/uk/reader/completion/?installer=Reader_DC_2020.013.20074_English_UK_for_Windows&stype=7467&direct=true&standalone=1" -OutFile "$TempLocation\AcroRdrDC2001320074_en_US.exe"
 
 # Install Sophos
@@ -82,6 +83,12 @@ Start-Sleep -Seconds 5
 Write-Host "Installing NetExtender"
 Invoke-WebRequest -Uri "https://github.com/adamhollmssl/Scripting/raw/master/NetExtender-x64-10.2.319.MSI" -OutFile "$TempScriptsLocation\NetExtender.msi"
 Start-Process MSIEXEC.exe -wait -ArgumentList "/I $TempScriptsLocation\NetExtender.msi /quiet /norestart"
+Start-Sleep -Seconds 5
+
+# Install GINA Client
+
+Write-Host "Installing GINA Client"
+Start-Process MSIEXEC.exe -wait -ArgumentList "/I $TempScriptsLocation\ADSelfServicePlusClientSoftware.msi SERVERNAME=selfservice.mssl.co.uk PORTNO=443 BUTTONTEXT=""Reset Password"" /qn"
 Start-Sleep -Seconds 5
 
 # Install Adobe DC
