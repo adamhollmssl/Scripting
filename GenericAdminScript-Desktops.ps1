@@ -332,3 +332,7 @@ Set-RegistryValueForAllUsers -RegistryInstance @{'Name' = 'InternetExplorerInteg
 # Cleanup Folder
 
 Remove-Item -Path $TempScriptsLocation -Recurse
+
+# Deletes Registry Key associated with CVE-2022-30190
+
+reg delete HKEY_CLASSES_ROOT\ms-msdt /f
