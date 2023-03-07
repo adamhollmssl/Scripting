@@ -328,6 +328,7 @@ function Set-RegistryValueForAllUsers {
 }
 Set-RegistryValueForAllUsers -RegistryInstance @{'Name' = 'InternetExplorerIntegrationSiteList'; 'Type' = 'String'; 'Value' = 'https://msspublicdocs.blob.core.windows.net/public/sites.emie'; 'Path' = 'Software\Policies\Microsoft\Edge'}
 Set-RegistryValueForAllUsers -RegistryInstance @{'Name' = 'InternetExplorerIntegrationLevel'; 'Type' = 'DWORD'; 'Value' = '00000001'; 'Path' = 'Software\Policies\Microsoft\Edge'}
+Set-RegistryValueForAllUsers -RegistryInstance @{'Name' = 'https'; 'Type' = 'DWORD'; 'Value' = '00000002'; 'Path' = 'Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\uksv.net'}
 
 # Cleanup Folder
 
