@@ -81,7 +81,7 @@ Start-Sleep -Seconds 5
 # Install NetExtender
 
 Write-Host "Installing NetExtender"
-Invoke-WebRequest -Uri "https://github.com/adamhollmssl/Scripting/raw/master/NetExtender-x64-10.2.319.MSI" -OutFile "$TempScriptsLocation\NetExtender.msi"
+Invoke-WebRequest -Uri "https://software.sonicwall.com/NetExtender/NetExtender-x64-10.2.331.MSI" -OutFile "$TempScriptsLocation\NetExtender.msi"
 Start-Process MSIEXEC.exe -wait -ArgumentList "/I $TempScriptsLocation\NetExtender.msi /quiet /norestart"
 Start-Sleep -Seconds 5
 
